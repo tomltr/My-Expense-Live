@@ -31,3 +31,23 @@
     transform: rotate(360deg);
   }
 }
+
+input
+{
+    margin-bottom: 20px;
+}
+
+#nameInput
+{
+    margin-bottom: 20px;
+}
+
+#typeInput
+{
+    margin-bottom: 50px;
+}
+
+#expenseInput
+{
+    margin-bottom: 30px;
+}
