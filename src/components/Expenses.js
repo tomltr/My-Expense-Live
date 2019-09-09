@@ -1,6 +1,7 @@
 import React from 'react';
 import Expense from './Expense';
 
+// Expenses Component that displays each individual expense in a container
 const Expenses = (props) =>
 {
     return (
