@@ -7,11 +7,15 @@ export default class EditExpense extends React.Component
         super(props);
         this.editExpense = this.editExpense.bind(this);
     }
+
+    // Obtain the index of the edited expense and turn on edit mode
     editExpense()
     {
-         const index = this.props.expenses.find((expense) => expense.id === this.props.expenseId);
-         this.props.toggleEdit(index);
+        const index = this.props.expenses.find((expense) => expense.id === this.props.expenseId);
+        this.props.toggleEdit(index);
     }
+
+    // Display edit button
     render()
     {
         return (
