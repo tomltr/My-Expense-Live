@@ -8,10 +8,13 @@ export default class RemoveExpense extends React.Component
         this.removeExpense = this.removeExpense.bind(this);
     }
 
+    // Remove expense based on props expenseId and expenseAmount
     removeExpense()
     {
        this.props.removeExpense(this.props.expenseId, this.props.expenseAmount);
     }
+
+    // A delete button
     render()
     {
         return(
