@@ -7,19 +7,31 @@ export default class AddExpense extends React.Component
         super(props);
         this.addExpense = this.addExpense.bind(this);
     }
+
+    // add new expense based on click event from the user input
     addExpense(e)
     {
+        // Prevent page refresh
         e.preventDefault();
+
+        // Get expense name and amount
         const name = e.target.elements.expense.value;
         let amount = e.target.elements.amount.value;
+
+        // Validate user's input
         const validExpense = this.props.validateExpense(name);
         const validAmount = this.props.validateAmount(amount);    
+
+        // Add newExpense object when both name and amount are valid.
         if(validExpense && validAmount)
         {
+            // Get selected type and date created
             const typeElement = document.getElementById("type");
             const selectedType = e.target.elements.type[typeElement.selectedIndex].value;
             amount = parseFloat(amount).toFixed(2);
             const date = new Date().toLocaleDateString().concat(` ${new Date().toLocaleTimeString()}`);
+
+            // Create newExpense object with the created corresponding values.
             const newExpense = 
             {
                 id: uuid.v4(),
@@ -41,10 +53,16 @@ export default class AddExpense extends React.Component
                 }
             };
             
+            // Add newExpense object 
             this.props.addExpense(newExpense, amount);
+
+            // Reset all text input 
             document.getElementById("expenseForm").reset();
         }
     }
+
+
+    // Render Add Form
     render() 
     {
         return (
@@ -61,7 +79,7 @@ export default class AddExpense extends React.Component
                                     </div>
                                     <div class="form-group" id="typeInput">
                                         <select class="form-control" name="type" id="type">
-                                            <option selected>Entertainment</option>
+                                            <option defaultValue>Entertainment</option>
                                             <option >Food</option>
                                             <option >Hobby</option>
                                             <option >Miscellaneous</option>
