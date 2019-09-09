@@ -8,6 +8,7 @@ export default class Header extends React.Component
         this.validateInputName = this.validateInputName.bind(this);
     }
 
+    // Display error if user input is nothing but spaces
     validateInputName(name)
     {
         const validName = name.length > 0;
@@ -25,6 +26,7 @@ export default class Header extends React.Component
         return name.length > 0;
     }
 
+    // Get user input name
     getInputName(e)  
     {
         e.preventDefault();
@@ -34,6 +36,8 @@ export default class Header extends React.Component
             this.props.getInputName(inputName);
         }
     }
+
+    // Display jumbotron along with name text input 
     render()
     {
         return (
